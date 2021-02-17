@@ -93,6 +93,16 @@ class LinkedList:
             # return the old_head's value 
             return val
 
-ll = LinkedList()
-ll.add_to_tail(5)
-print(ll.head)
+    def add_to_head(self, value):
+        new_value = Node(value)
+        # check if the linked list is empty
+        if self.head is None and self.tail is None:
+            self.head = new_value
+            self.tail = new_value
+        # at least node in the linked list
+        else:
+            # set old head as the next node value
+            new_value.set_next(self.head)
+            # set the new node value as new head
+            self.head = new_value
+
